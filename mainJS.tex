@@ -1,11 +1,16 @@
-\documentclass[11pt]{article}
+\documentclass[10pt]{article}
 
-\usepackage[margin=0.6in]{geometry}
+\usepackage[margin=0.5in]{geometry}
+\usepackage{XCharter}
+\usepackage{microtype}
 \usepackage{titlesec}
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
 \usepackage{url}
+
+
+\renewcommand{\baselinestretch}{1.15}
 
 
 \definecolor{accent}{RGB}{75, 0, 90} % dark navy blue
@@ -21,6 +26,7 @@
 \titleformat{\section}{
   \large\bfseries\color{accent}
 }{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{12pt}{4pt}
 
 \begin{document}
 
@@ -37,48 +43,46 @@ U.S. Citizen, Eligible for U.S. Security Clearance
 \section*{EXPERIENCE}
 \textbf{Founding Software Developer -- ZipTip} \hfill Dec 2025 -- Present\\
 \textit{Remote / Westminster, MD}
-\begin{itemize}[label=\texttt{\textbf{>}}]
-  \item PYTHON: lambda, boto3, Cognito, JSON, Docker, SAM CLI
-  \item TYPESCRIPT: Angular
-  \item CI/CD: Github Actions
-  \item UNIT \& INTEGRATION: tests using pytest, automated AWS SAM deployment for prod and dev environments.
+\begin{itemize}[label={\color{accent}\textbullet}]
+  \item Designed a serverless scan API (AWS Lambda, API Gateway, DynamoDB) with custom-domain routing, authentication, and ID-to-account redirect logic for a real-time tipping platform.
+  \item Upgraded a large Angular codebase with shared linting tooling, typed API clients, and service-injection refactors for a better developer experience.
+  \item Built AWS SAM CI/CD pipelines with OIDC-based auth, automated Route 53 DNS propagation after deploy, and rollback support for dev and prod environments.
+  \item Implemented Open Graph link previews with bot/crawler detection and pre-signed S3 URLs for rich social shares of tip links.
 \end{itemize}
 
 %-------------------------
 \section*{SKILLS}
+\textbf{JavaScript / TypeScript:} Angular, React, React Native, HTML, CSS \\
+\textbf{Python:} FastAPI, Django, Flask, pytest \\
 \textbf{Java:} Spring Boot, JPA, Gradle, JUnit \\
-\textbf{JavaScript/Typescript:} Angular, React Native, HTML, CSS, Next.js, React, Vue  \\
-\textbf{Python:} FastAPI, Django, Flask, AWS (Lambda, SAM CLI), boto3, Cognito, JSON \\
-\textbf{Databases:} PostgreSQL, DynamoDB \\
-\textbf{Tools:} Git/GitHub, Docker, Linux, pip, uv (venv), npm, ESLint, Prettier, Vim, Tmux
+\textbf{AWS \& Cloud:} Lambda, SAM CLI, boto3, Cognito, CloudFormation, API Gateway, Docker \\
+\textbf{Database:} PostgreSQL, DynamoDB, SQLite \\
+\textbf{Tools:} Git/GitHub, GitHub Actions, Linux, ESLint, Prettier, C++17 (CMake)
 
 %-------------------------
-\section*{
-TECHNICAL PROJECTS 
-{\normalfont\normalsize\color{black}\underline{\href{https://github.com/nickczak}{GitHub}}}
-}
-\noindent\textbf{On The Money} -- \textit{Typescript (React Native); Java (Spring Boot), JPA, PostgreSQL; Docker}
+\section*{TECHNICAL PROJECTS {\normalfont\normalsize\color{black}\href{https://github.com/nickczak}{GitHub}}}
+
+\noindent\textbf{On The Money} -- \textit{TypeScript (React/Vite PWA); Java (Spring Boot), JPA, PostgreSQL; C++ Monte Carlo engine; Docker; Plaid}
 \vspace{-2pt} % reduce space between heading and bullets
-\begin{itemize}[label=\texttt{\textbf{>}}]
-  \item Created RESTFul API using Spring Boot and JPA to manage financial calculation and transaction data.
-  \item Implemented PostgreSQL database with JPA for persistent storage of user data, financial calculations, and transaction history.
-  \item Used JSON to transmit data between Java API and React Native frontend, as well as between API and C++ engine for heavy financial calculations.
-  \item Developed a React Native frontend for iOS, Dockerized and deployed on a VPS.
+\begin{itemize}[label={\color{accent}\textbullet}]
+  \item Integrated Plaid Link to let users securely connect bank accounts and automatically sync real transactions and balances through Plaid's API.
+  \item Built a C++17 Monte Carlo engine running \texttt{\textbf{10,000 simulations/request}} into a Spring Boot REST API for retirement and portfolio growth projections.
+  \item Pulled live stock quotes, market indices, and symbol search via Finnhub with a per-user watchlist; shipped the frontend as a React (Vite) PWA deployed on a VPS. (see \underline{\href{https://onthemoney.site}{On The Money}})
 \end{itemize} 
 
-\noindent\textbf{QuickQuill} -- \textit{Typescript (Angular); Java (Spring Boot), JPA, PostgreSQL; Docker; C++17;}
+\noindent\textbf{QuickQuill} -- \textit{TypeScript (Angular); Java (Spring Boot), JPA, PostgreSQL; Docker; C++17;}
 \vspace{-2pt} % reduce space between heading and bullets
-\begin{itemize}[label=\texttt{\textbf{>}}]
-  \item Typescript frontend built with Angular for a responsive and user-friendly interface. (see \underline{\href{https://quickquill.ink/}{QuickQuill}})
-  \item Reduced repeated query latency from \url{~}\texttt{200ms} to \texttt{<0.18ms} via in-memory caching in the C++ backend using Crow framework for handling HTTP requests and responses.
-  \item Implemented a RESTful API to facilitate communication between the C++ Trie and SQLite3 database, and the Typescript frontend.
-  \item Created ghost autofill feature in Typescript that interacts with the C++ Trie reaching \texttt{\textbf{sub-XXms}} autocomplete response times.
+\begin{itemize}[label={\color{accent}\textbullet}]
+  \item Built a C++17 trie-based engine that serves lookups, spell-check suggestions, and autocomplete across a \texttt{\textbf{1.28M-word}} dictionary using thread-local SQLite connections and a thread-safe in-memory LRU cache.
+  \item Integrated the native engine into a Spring Boot REST API via Java's Panama FFM (Foreign Function \& Memory) API with a flat \texttt{extern~"C"} ABI --- native calls with no JNI or glue code.
+  \item Shipped an Angular 21 frontend with RxJS debounced search streams and ghost-text autocomplete; multi-stage Dockerized deployment of C++ engine, Spring Boot, Angular, and PostgreSQL on a free-tier VPS. (see \underline{\href{https://quickquill.ink/}{QuickQuill}})
 \end{itemize} 
 
 %-------------------------
 \section*{EDUCATION}
 \textbf{University of Maryland, Baltimore County} \hfill Aug 2025 -- May 2027\\
-\textit{Bachelor of Science in Computer Science}
+\textit{Bachelor of Science in Computer Science}\\
+\textit{Relevant coursework: Neurosymbolic AI}
 
 \textbf{Carroll Community College} \hfill Sept 2023 -- May 2025\\
 \textit{Associate of Arts in Computer Science}
