@@ -1,5 +1,5 @@
-\documentclass[10pt]{article}
-
+% APL / backend and security-focused software version.
+\documentclass[10pt,letterpaper]{article}
 \usepackage[margin=0.5in]{geometry}
 \usepackage{XCharter}
 \usepackage{microtype}
@@ -7,85 +7,62 @@
 \usepackage{enumitem}
 \usepackage[hidelinks]{hyperref}
 \usepackage{xcolor}
-\usepackage{url}
-
-
-\renewcommand{\baselinestretch}{1.15}
-
-
-\definecolor{accent}{RGB}{75, 0, 90} % dark navy blue
+\renewcommand{\baselinestretch}{1.1}
+\definecolor{accent}{RGB}{75, 0, 90}
 \urlstyle{same}
-
 \setlength{\parindent}{0pt}
 \setlength{\parskip}{3pt}
-\setlist[itemize]{noitemsep, topsep=2pt}
-
+\setlist[itemize]{noitemsep, topsep=2pt, leftmargin=1.4em, label={\color{accent}\textbullet}}
 \pagestyle{empty}
-
-% Section formatting
-\titleformat{\section}{
-  \large\bfseries\color{accent}
-}{}{0em}{}[\titlerule]
-\titlespacing*{\section}{0pt}{12pt}{4pt}
+\titleformat{\section}{\large\bfseries\color{accent}}{}{0em}{}[\titlerule]
+\titlespacing*{\section}{0pt}{10pt}{4pt}
+\hypersetup{pdftitle={Nicholas Sobchak - Software Engineer}, pdfauthor={Nicholas Sobchak}}
 
 \begin{document}
-
-%-------------------------
-% Header
-%-------------------------
 {\LARGE \textbf{\color{accent} NICHOLAS SOBCHAK}}\\
-Eldersburg, MD 21784 \textbar\ (443) 586.6341 \textbar\ nlsobchak@gmail.com\\
-\underline{\href{https://nickczak.github.io/portfolio/}{Portfolio}} \textbar\ 
-\underline{\href{https://linkedin.com/in/nicholas-sobchak-b4aa2a329}{LinkedIn}} \textbar\ 
-\underline{\href{https://github.com/nickczak}{GitHub}} \textbar\ 
-U.S. Citizen, Eligible for U.S. Security Clearance
+Eldersburg, MD \textbar\ (443) 586.6341 \textbar\ \href{mailto:nlsobchak@gmail.com}{nlsobchak@gmail.com}\\
+\underline{\href{https://nickczak.github.io/portfolio/}{Portfolio}} \textbar\
+\underline{\href{https://linkedin.com/in/nicholas-sobchak-b4aa2a329}{LinkedIn}} \textbar\
+\underline{\href{https://github.com/nickczak}{GitHub}} \textbar\ U.S. Citizen
 
-%-------------------------
+\section*{EDUCATION}
+\textbf{University of Maryland, Baltimore County (UMBC)} \hfill Expected May 2027\\
+Bachelor of Science in Computer Science \textbar\ Coursework: Neurosymbolic AI
+
+\textbf{Carroll Community College} \hfill May 2025\\
+Associate of Arts in Computer Science
+
+\section*{TECHNICAL SKILLS}
+\textbf{Languages:} Python, C++17, Java, SQL, TypeScript, JavaScript \\
+\textbf{Systems \& Tools:} Linux, Git, Docker, CMake, GitHub Actions, Valgrind \\
+\textbf{Testing:} pytest, Catch2, JUnit \\
+\textbf{Backend \& Data:} Spring Boot, JPA, FastAPI, PostgreSQL, SQLite, DynamoDB \\
+\textbf{Cloud:} AWS Lambda, API Gateway, Cognito, SAM, CloudFormation, boto3 \\
+\textbf{Frontend:} Angular, React, HTML, CSS
+
 \section*{EXPERIENCE}
 \textbf{Founding Software Developer -- ZipTip} \hfill Dec 2025 -- Present\\
 \textit{Remote / Westminster, MD}
-\begin{itemize}[label={\color{accent}\textbullet}]
-  \item Designed a serverless scan API (AWS Lambda, API Gateway, DynamoDB) with custom-domain routing, authentication, and ID-to-account redirect logic for a real-time tipping platform.
-  \item Upgraded a large Angular codebase with shared linting tooling, typed API clients, and service-injection refactors for a better developer experience.
-  \item Built AWS SAM CI/CD pipelines with OIDC-based auth, automated Route 53 DNS propagation after deploy, and rollback support for dev and prod environments.
-  \item Implemented Open Graph link previews with bot/crawler detection and pre-signed S3 URLs for rich social shares of tip links.
+\begin{itemize}
+  \item Designed a serverless scan API with AWS Lambda, API Gateway, and DynamoDB, implementing authentication, custom-domain routing, and ID-to-account redirects for a real-time tipping platform.
+  \item Built AWS SAM CI/CD pipelines with OIDC authentication, automated Route 53 DNS updates, and rollback support for development and production environments.
+  \item Built unit and integration tests with pytest for backend services and automated AWS SAM deployments.
+  \item Developed account authentication and authorization services using Amazon Cognito; integrated backend APIs with Python and boto3.
 \end{itemize}
 
-%-------------------------
-\section*{SKILLS}
-\textbf{JavaScript / TypeScript:} Angular, React, React Native, HTML, CSS \\
-\textbf{Python:} FastAPI, Django, Flask, pytest \\
-\textbf{Java:} Spring Boot, JPA, Gradle, JUnit \\
-\textbf{AWS \& Cloud:} Lambda, SAM CLI, boto3, Cognito, CloudFormation, API Gateway, Docker \\
-\textbf{Database:} PostgreSQL, DynamoDB, SQLite \\
-\textbf{Tools:} Git/GitHub, GitHub Actions, Linux, ESLint, Prettier, C++17 (CMake)
+\section*{TECHNICAL PROJECTS}
+\textbf{\href{https://github.com/nickczak/QuickQuill-Dictionary-SpellChecker}{QuickQuill}} -- \textit{C++17, Java, Spring Boot, SQLite, PostgreSQL, Docker}
+\begin{itemize}
+  \item Built a trie-based C++ dictionary engine supporting lookup, spell-check suggestions, and autocomplete across a 1.28M-word dictionary.
+  \item Used mutex synchronization for an LRU cache and thread-local SQLite connections for concurrent lookups; managed trie nodes and database handles with C++ smart pointers.
+  \item Integrated the native engine with a Spring Boot REST API through Java's Foreign Function \& Memory API and an \texttt{extern "C"} interface.
+  \item Implemented BCrypt password hashing and token-based sessions backed by PostgreSQL; tested dictionary operations and concurrent lookups with Catch2.
+\end{itemize}
 
-%-------------------------
-\section*{TECHNICAL PROJECTS {\normalfont\normalsize\color{black}\href{https://github.com/nickczak}{GitHub}}}
-
-\noindent\textbf{On The Money} -- \textit{TypeScript (React/Vite PWA); Java (Spring Boot), JPA, PostgreSQL; C++ Monte Carlo engine; Docker; Plaid}
-\vspace{-2pt} % reduce space between heading and bullets
-\begin{itemize}[label={\color{accent}\textbullet}]
-  \item Integrated Plaid Link to let users securely connect bank accounts and automatically sync real transactions and balances through Plaid's API.
-  \item Built a C++17 Monte Carlo engine running \texttt{\textbf{10,000 simulations/request}} into a Spring Boot REST API for retirement and portfolio growth projections.
-  \item  Pulled live stock quotes, market indices, and symbol search via Finnhub with a per-user watchlist; shipped the frontend as a React (Vite) PWA and PostgreSQL database on Vercel, with a Spring Boot API on Render. (see \underline{\href{https://onthemoney.site}{On The Money}})
-\end{itemize} 
-
-\noindent\textbf{QuickQuill} -- \textit{TypeScript (Angular); Java (Spring Boot), JPA, PostgreSQL; Docker; C++17;}
-\vspace{-2pt} % reduce space between heading and bullets
-\begin{itemize}[label={\color{accent}\textbullet}]
-  \item Built a C++17 trie-based engine that serves lookups, spell-check suggestions, and autocomplete across a \texttt{\textbf{1.28M-word}} dictionary using thread-local SQLite connections and a thread-safe in-memory LRU cache.
-  \item Integrated the native engine into a Spring Boot REST API via Java's Panama FFM (Foreign Function \& Memory) API with a flat \texttt{extern~"C"} ABI --- native calls with no JNI or glue code.
-  \item  Shipped an Angular 21 frontend on Vercel with RxJS debounced search streams and ghost-text autocomplete; multi-stage Dockerized deployment of the C++ engine, Spring Boot, and PostgreSQL on Render. (see \underline{\href{https://quickquill.ink/}{QuickQuill}})
-\end{itemize} 
-
-%-------------------------
-\section*{EDUCATION}
-\textbf{University of Maryland, Baltimore County} \hfill Aug 2025 -- May 2027\\
-\textit{Bachelor of Science in Computer Science}\\
-\textit{Relevant coursework: Neurosymbolic AI}
-
-\textbf{Carroll Community College} \hfill Sept 2023 -- May 2025\\
-\textit{Associate of Arts in Computer Science}
-
+\textbf{\href{https://github.com/nickczak/OnTheMoney-Finance-Tracker}{On The Money}} -- \textit{C++17, Java, Spring Boot, PostgreSQL, React, Docker}
+\begin{itemize}
+  \item Integrated a C++ Monte Carlo engine with a Spring Boot REST API to run 10,000 simulations per request for retirement and portfolio growth projections.
+  \item Protected Plaid access tokens at rest with AES-GCM encryption using Spring Security; kept token exchange and storage in the backend.
+  \item Integrated Plaid Link for bank-account connections and transaction synchronization; deployed a Dockerized Java API and React PWA backed by PostgreSQL.
+\end{itemize}
 \end{document}
