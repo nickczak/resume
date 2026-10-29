@@ -7,9 +7,10 @@ Two one-page versions share the same education and project history:
 | `mainCpp.tex` / `mainCpp.pdf` | Northrop Grumman and systems software roles | C++ data structures, concurrency, native integration, testing |
 | `mainJS.tex` / `mainJS.pdf` | APL and backend/security-focused software roles | Python, authentication, cloud infrastructure, encrypted token storage |
 
-The existing filenames are retained for compatibility. Both versions were revised
-from the current JavaScript/TypeScript résumé. The APL version describes implemented
-security features in QuickQuill and On The Money; Hashword remains a UI prototype
+Files use `main` followed by the language focus: `mainCpp` for C++ systems work
+and `mainJS` for the JavaScript/TypeScript full-stack track, tailored here to
+backend/security roles. Each PDF is built from the matching `.tex` source.
+The APL version describes implemented security features in QuickQuill and On The Money; Hashword remains a UI prototype
 and is not presented as a completed security project. KG-RAG is omitted pending
 documented implementation and results.
 
@@ -17,7 +18,8 @@ Portfolio: <https://nickczak.github.io/portfolio/>
 
 ## Build
 
-Requires [Tectonic](https://tectonic-typesetting.github.io/).
+Requires [Tectonic](https://tectonic-typesetting.github.io/) and Poppler utilities
+(`pdfinfo`, `pdftotext`) for the build checks.
 
 ```sh
 tectonic mainCpp.tex
@@ -38,15 +40,19 @@ the matching PDF in a viewer that reloads on changes, such as zathura.
 
 ## Portfolio download
 
-The portfolio exposes a single current PDF, using the systems software version.
-After rebuilding it, synchronize the download from this repository:
+The portfolio displays the C++ / Systems résumé and offers one matching PDF
+download. Build both versions and synchronize the website download with:
 
 ```sh
-cp mainCpp.pdf ../portfolio/public/nicholas-sobchak-resume.pdf
-# Keep the previous download filename current for existing bookmarks.
-cp mainCpp.pdf ../portfolio/public/mainJS_421_revised.pdf
+./build.sh --sync-portfolio
 ```
 
-Keep the web résumé in `../portfolio/src/pages/resume.astro` aligned with the PDF.
-Attach the appropriate PDF directly when requesting a referral. Send the portfolio
-URL above rather than the résumé source repository.
+The script checks that both PDFs are one page, then copies the C++ version to
+`../portfolio/public/nicholas-sobchak-resume.pdf` and the legacy
+`mainJS_421_revised.pdf` URL. Both specialized PDFs stay in this repository.
+Run `./build.sh` to build without copying.
+
+Keep the web résumé in `../portfolio/src/pages/resume.astro` aligned with the C++
+version. Attach `mainCpp.pdf` for Northrop/systems referrals and `mainJS.pdf` for
+APL/backend/security referrals. Inspect the rendered PDFs after content changes;
+text extraction alone cannot catch layout problems.

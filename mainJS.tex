@@ -57,7 +57,7 @@ Associate of Arts in Computer Science
   \item Built a trie-based C++ dictionary engine supporting lookup, spell-check suggestions, and autocomplete across a 1.28M-word dictionary.
   \item Used mutex synchronization for an LRU cache and thread-local SQLite connections for concurrent lookups; managed trie nodes and database handles with C++ smart pointers.
   \item Integrated the native engine with a Spring Boot REST API through Java's Foreign Function \& Memory API and an \texttt{extern "C"} interface.
-  \item Implemented BCrypt password hashing and token-based sessions backed by PostgreSQL; tested dictionary operations and concurrent lookups with Catch2.
+  \item Secured account endpoints with validated JSON credential bodies, BCrypt password hashing, and PostgreSQL-backed sessions; added request-validation and credential-leak regression tests.
 \end{itemize}
 
 \textbf{\href{https://github.com/nickczak/OnTheMoney-Finance-Tracker}{On The Money}} -- \textit{C++17, Java, Spring Boot, PostgreSQL, React, Docker}
