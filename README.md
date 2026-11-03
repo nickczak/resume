@@ -8,20 +8,20 @@ Requires [Tectonic](https://tectonic-typesetting.github.io/) and Poppler utiliti
 (`pdfinfo`, `pdftotext`) for the build checks.
 
 ```sh
-tectonic mainCpp.tex
-tectonic mainJS.tex
+tectonic mainC.tex
+tectonic mainT.tex
 ```
 
 Check that each PDF is one page and inspect its layout after changing content:
 
 ```sh
-pdfinfo mainCpp.pdf
-pdfinfo mainJS.pdf
-pdftotext -layout mainCpp.pdf -
-pdftotext -layout mainJS.pdf -
+pdfinfo mainC.pdf
+pdfinfo mainT.pdf
+pdftotext -layout mainC.pdf -
+pdftotext -layout mainT.pdf -
 ```
 
-For hot reload, run `./dev.sh mainCpp.tex` or `./dev.sh mainJS.tex`, then open
+For hot reload, run `./dev.sh mainC.tex` or `./dev.sh mainT.tex`, then open
 the matching PDF in a viewer that reloads on changes, such as zathura.
 
 ## Portfolio download
@@ -39,6 +39,6 @@ The script checks that both PDFs are one page, then copies the C++ version to
 Run `./build.sh` to build without copying.
 
 Keep the web résumé in `../portfolio/src/pages/resume.astro` aligned with the C++
-version. Attach `mainCpp.pdf` for Northrop/systems referrals and `mainJS.pdf` for
+version. Attach `mainC.pdf` for Northrop/systems referrals and `mainT.pdf` for
 APL/backend/security referrals. Inspect the rendered PDFs after content changes;
 text extraction alone cannot catch layout problems.

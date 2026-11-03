@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -u
 
-TARGET="${1:-mainJS.tex}"
+TARGET="${1:-mainT.tex}"
 LAST=""
 
 echo "Watching ${TARGET} ... (Ctrl+C to stop)"
