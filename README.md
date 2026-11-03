@@ -1,19 +1,5 @@
 # Nicholas Sobchak — Résumé
 
-Two one-page versions share the same education and project history:
-
-| Source / PDF | Intended use | Emphasis |
-| --- | --- | --- |
-| `mainCpp.tex` / `mainCpp.pdf` | Northrop Grumman and systems software roles | C++ data structures, concurrency, native integration, testing |
-| `mainJS.tex` / `mainJS.pdf` | APL and backend/security-focused software roles | Python, authentication, cloud infrastructure, encrypted token storage |
-
-Files use `main` followed by the language focus: `mainCpp` for C++ systems work
-and `mainJS` for the JavaScript/TypeScript full-stack track, tailored here to
-backend/security roles. Each PDF is built from the matching `.tex` source.
-The APL version describes implemented security features in QuickQuill and On The Money; Hashword remains a UI prototype
-and is not presented as a completed security project. KG-RAG is omitted pending
-documented implementation and results.
-
 Portfolio: <https://nickczak.github.io/portfolio/>
 
 ## Build
